@@ -5,9 +5,50 @@
 	<link rel="stylesheet" type="text/css" href="css/base.css"/>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="shortcut icon"  href="favicon.ico">
+	<script type="text/javascript">
+		window.onload = function(){
+			// 事件源：登录
+			// 事件： 显示弹出灰色的大盒子跟白色的小盒子
+			// 动作：点击
+			var login = document.getElementById("jd_login");
+			var mask = document.getElementById("jd_mask");
+			var box = document.getElementById("jd_box");
+			var close = document.getElementById("close_login");
+			login.onclick = function(){
+				mask.style.display = "block";
+				box.style.display = "block";
+			},
+			// 事件源：关闭
+			// 事件： 隐藏灰色的大盒子跟白色的小盒子
+			// 动作：点击
+			close.onclick = function(){
+				mask.style.display = "none";
+				box.style.display = "none";
+			}
+		}
+	</script>
 </head>
 <body>
 <!-- 京东的头部导航开始 -->
+<div class="mask" id="jd_mask"></div>
+<div class="box" id="jd_box">
+	<div class="b_top">
+		<p>登 录</p>
+		<span id="close_login">x</span>
+	</div>
+	<div class="login">
+		<div class="username">
+			<p>用户名：</p>
+			<input type="text" name="username" id="jd_username"  >
+		</div>
+		<div class="password">
+			<p>密&nbsp;&nbsp;&nbsp;码：</p>
+			<input type="text" name="password" id="jd_password"  >
+		</div>
+		<a href="#">登&nbsp;&nbsp;&nbsp;录</a>
+	</div>
+	
+</div>
 <div class="shortcut">
 	<div class="w">
 		<div class="fl">
@@ -16,7 +57,7 @@
 		<div class="fr">
 			<ul>
 				<li>
-					<a href="#">您好，请登陆</a> &nbsp;&nbsp;
+					<a href="javascript:;" id="jd_login">您好，请登陆</a> &nbsp;&nbsp;
 				    <a href="#" class="clo-red">免费注册</a>
 				</li>
 				<li class="line"></li>
@@ -30,23 +71,45 @@
 				<li class="line"></li>
 				<li class="fore">手机京东<i><s>◇</s></i></li>
 				<li class="line"></li>
-				<li class="fore tel-jd"><em class="tel"></em>关于京东<i><s>◇</s></i></li>
+				<li class="fore tel-jd" id="jd_about"><em class="tel"></em>关于京东<i><s>◇</s></i></li>
 				<li class="line"></li>
 				<li class="fore">客服服务<i><s>◇</s></i></li>
 				<li class="line"></li>
 				<li class="fore">网站导航<i><s>◇</s></i></li>
 			</ul>
 		</div>
+		<div class="code" id="jd_code">
+		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	var about = document.getElementById('jd_about');
+	var code = document.getElementById('jd_code');
+	about.onmouseover = function(){
+		code.style.display = 'block';
+	}
+	about.onmouseout = function(){
+		code.style.display = 'none';
+	}
+</script>
 <!-- end -->
 <!-- 京东topbanner部分 -->
-<div class="topbanner">
+<div class="topbanner" id='jd_topbanner'>
 	<div class="w tp">
 		<img src="images/topbanner.jpg" alt="">
-		<a href="javascript:;" class="close-banner"></a>
+		<a href="javascript:;" class="close-banner" id="close_banner"></a>
 	</div>
 </div>
+<script type="text/javascript">
+	// 事件源： a
+	// 事件：点击
+	// 事件处理程序 topbanner 隐藏这个样式
+	var closebanner = document.getElementById('close_banner');
+	var topbanner = document.getElementById('jd_topbanner');
+	closebanner.onclick = function(){
+		topbanner.style.display = "none";
+	}
+</script>
 <!-- end -->
 <!-- clearfix清除浮动 -->
 <div class="w clearfix">
@@ -319,6 +382,12 @@
 				</li>
 			</ul>
 		</div>
+	</div>
+	<div class="majorSuit">
+		<div class="majorSuit-r fl">
+			<img src="images/">
+		</div>
+		<div class="majorSuit-l"></div>
 	</div>
 </div>
 <!-- 底部部分开始 -->

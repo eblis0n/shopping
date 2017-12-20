@@ -51,6 +51,78 @@ s,i,em{font-style:normal;text-decoration:none;}
 .hide {
     display:none
 }
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background:rgba(0,0,0,.5);
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: none;
+}
+.box{
+    width: 400px;
+    height: 250px;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -200px;
+    z-index: 100;
+    display: none;
+}
+.box .b_top{
+    width: 400px;
+    height: 40px;
+    background-color: #FF0000;
+    border-bottom: 1px solid #B3B3B3;
+}
+.b_top p{
+    font-size: 20px;
+    color: #FFFFFF;
+    padding-top: 12px;
+    text-align: center;
+}
+.box span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+    color: #B3B3B3;
+    cursor: pointer;
+}
+.login p{
+    display: inline-block;
+    font-size: 16px;
+    font-family: "microsoft yahei";
+}
+.login input{
+    border: 1px solid #3E3E3E;
+    height: 25px;
+    width: 200px;
+}
+.login .username{
+    padding: 30px 50px;
+}
+.login .password{
+    padding:0 50px 30px 50px;
+}
+.login a{
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    width: 300px;
+    border: 1px solid #FFFF66;
+    background-color: #FFCC66;
+    text-align: center;
+    font-size:18px;
+    font-family: "microsoft yahei";
+    margin: 10px 50px;
+    color: #ffffff;
+}
 
 /*头部导航开始*/
 .shortcut{
@@ -102,6 +174,18 @@ s,i,em{font-style:normal;text-decoration:none;}
     top: 5px;
 
 }
+.code{
+    width: 100px;
+    height: 100px;
+    background: url(../images/code.jpg) no-repeat ;
+    background-size: 100% 100%;
+    float: right;
+    position: absolute;
+    top:30px;
+    right: 238px;
+    z-index:10;
+    display: none;
+}
 /*topbann start*/
 .topbanner{
     background-color: #8a25c6;
@@ -134,7 +218,6 @@ s,i,em{font-style:normal;text-decoration:none;}
     width: 270px;
     height: 60px;
     text-indent: -2000em;
-    
 }
 .db11{
     position: absolute;
