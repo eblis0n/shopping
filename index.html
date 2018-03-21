@@ -5,28 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="css/base.css"/>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="shortcut icon"  href="favicon.ico">
-	<script type="text/javascript">
-		window.onload = function(){
-			// 事件源：登录
-			// 事件： 显示弹出灰色的大盒子跟白色的小盒子
-			// 动作：点击
-			var login = document.getElementById("jd_login");
-			var mask = document.getElementById("jd_mask");
-			var box = document.getElementById("jd_box");
-			var close = document.getElementById("close_login");
-			login.onclick = function(){
-				mask.style.display = "block";
-				box.style.display = "block";
-			},
-			// 事件源：关闭
-			// 事件： 隐藏灰色的大盒子跟白色的小盒子
-			// 动作：点击
-			close.onclick = function(){
-				mask.style.display = "none";
-				box.style.display = "none";
-			}
-		}
-	</script>
+	<script type="text/javascript" src="js/potting.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
 <!-- 京东的头部导航开始 -->
@@ -39,15 +19,15 @@
 	<div class="login">
 		<div class="username">
 			<p>用户名：</p>
-			<input type="text" name="username" id="jd_username"  >
+			<input type="text" name="username" id="jd_username" >
 		</div>
 		<div class="password">
 			<p>密&nbsp;&nbsp;&nbsp;码：</p>
-			<input type="text" name="password" id="jd_password"  >
+			<input type="text" name="password" id="jd_password" >
 		</div>
-		<a href="#">登&nbsp;&nbsp;&nbsp;录</a>
+		<!-- <span id="result"></span> -->
+		<a href="#" id="jd_go">登&nbsp;&nbsp;&nbsp;录</a>
 	</div>
-	
 </div>
 <div class="shortcut">
 	<div class="w">
@@ -82,16 +62,6 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	var about = document.getElementById('jd_about');
-	var code = document.getElementById('jd_code');
-	about.onmouseover = function(){
-		code.style.display = 'block';
-	}
-	about.onmouseout = function(){
-		code.style.display = 'none';
-	}
-</script>
 <!-- end -->
 <!-- 京东topbanner部分 -->
 <div class="topbanner" id='jd_topbanner'>
@@ -100,16 +70,6 @@
 		<a href="javascript:;" class="close-banner" id="close_banner"></a>
 	</div>
 </div>
-<script type="text/javascript">
-	// 事件源： a
-	// 事件：点击
-	// 事件处理程序 topbanner 隐藏这个样式
-	var closebanner = document.getElementById('close_banner');
-	var topbanner = document.getElementById('jd_topbanner');
-	closebanner.onclick = function(){
-		topbanner.style.display = "none";
-	}
-</script>
 <!-- end -->
 <!-- clearfix清除浮动 -->
 <div class="w clearfix">
@@ -120,8 +80,9 @@
 		</div>
 	</div>
 	<div class="search">
-		<input type="text" name="" id="" value="图书开抢">
-		<button>搜索</button>
+		<input type="text" name="" id="jd_txt" value="">
+		<label for="jd_txt" id="jd_lab">图书开抢</label>
+		<button id="jd_btn">搜索</button>
 	</div>
 	<div class="car">
 		购物车
@@ -148,67 +109,84 @@
 			<div class="dt">
 				<a href="#">全部商品分类</a>
 			</div>
-			<div class="dd">
-				<div class="items">
+			<div class="dd items" id="jd_first_minus">
+				<div>
 					<h3>家用电器</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>手机、数码、京东通信</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>电脑、办公</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>家居、家具、家装</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>男装、女装、内衣</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>个护化妆、清洁用品</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>鞋靴、箱包、钟表</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>运动户外</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>汽车、汽车用品</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>母婴、玩具乐器</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>食品、酒类、生鲜</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>营养保健</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>图书、音箱、电子书</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>彩票、旅行、充值</h3>
 					<span>></span>
 				</div>
-				<div class="items">
+				<div>
 					<h3>理财、众筹、白条</h3>
 					<span>></span>
 				</div>
+			</div>
+			<div class="secondmenu" id="jd_menu">
+				<div>1号盒子</div>
+				<div>2号盒子</div>
+				<div>3号盒子</div>
+				<div>4号盒子</div>
+				<div>5号盒子</div>
+				<div>6号盒子</div>
+				<div>7号盒子</div>
+				<div>8号盒子</div>
+				<div>9号盒子</div>
+				<div>10号盒子</div>
+				<div>11号盒子</div>
+				<div>12号盒子</div>
+				<div>13号盒子</div>
+				<div>14号盒子</div>
+				<div>15号盒子</div>
 			</div>
 		</div>
 		<div class="navtems">
@@ -236,20 +214,46 @@
 </div>
 <div class="w main clearfix">
 	<div class="slider">
-		<a href="#"><img src="images/slider1.jpg"></a>
+		<ul class="banner clearfix"  id="jd_banner" style="left: 0;">
+			<li class="slider_img">
+				<a href="#">
+					<img src="images/slider1.jpg">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/slider2.jpg">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/slider3.jpg">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/slider1.jpg">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/slider2.jpg">
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/slider3.jpg">
+				</a>
+			</li>
+		</ul>
 		<!-- 小圆点 -->
-		<ul class="circle">
-			<li class="current">1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-			<li>6</li>
+		<ul class="circle" id="jd_circle">
+			<!-- <li class="current">1</li> -->
 		</ul>
 		<!-- 左右三角 -->
 		<div class="arrow">
-			<a href="javascript:;" class="arrow-l"> < </a>
-			<a href="javascript:" class="arrow-r"> > </a>
+			<a href="javascript:;" class="arrow-l" id="prev"> < </a>
+			<a href="javascript:" class="arrow-r" id="next"> > </a>
 		</div>
 	</div>
 	<div class="news">
@@ -258,9 +262,9 @@
 				<h3>京东快报</h3>
 				<a href="#">更多 ></a>
 			</div>
-			<div class="dd">
+			<div class="dd" id="jd_kb">
 				<ul>
-					<li><a href="#"><span>[特惠]</span>1元秒杀</a></li>
+					<li class="news_li"><a href="#"><span>[特惠]</span>1元秒杀</a></li>
 					<li><a href="#"><span>[公告]</span>母婴类app【京东包包】上线啦</a></li>
 					<li><a href="#"><span>[特惠]</span>1元秒杀</a></li>
 					<li><a href="#"><span>[公告]</span>母婴类app【京东包包】上线啦</a></li>
@@ -272,21 +276,21 @@
 			<div class="dt">
 				<h3>生活服务</h3>
 			</div>
-			<div class="dd">
+			<div class="dd" id="jd_life">
 				<ul>
-					<li class="li_ico1">
+					<li >
 						<a href="#">
 						<i></i>
 						<span>话费</span>
 					</a>
 				</li>
-					<li class="li_ico2">
+					<li>
 						<a href="#" class="song">
 							<i></i>
 							<span>机票</span>
 						</a>
 					</li>
-					<li class="li_ico3">
+					<li>
 						<a href="#">
 							<i></i>
 							<span>电影票</span>

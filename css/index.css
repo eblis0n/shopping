@@ -19,10 +19,38 @@
 .slider{
 	width: 730px;
 	height: 453px;
-	/*background-color: pink;*/
 	margin: 12px 0 0 220px;
 	float: left;
 	position: relative;
+	overflow: hidden;
+}
+.slider .banner{
+	width: 4380px;
+	position: absolute;
+}
+.banner li{
+	float: left;
+	width: 730px;
+	height: 453px;
+}
+.f_menu{
+	background-color: #FFFFFF;
+	color:  #FF0000 !important;
+}
+.secondmenu div{
+	width: 730px;
+	height: 453px;
+	margin: 12px 0 0 220px;
+	float: left;
+	position: relative;
+	height: 454px;
+	background-color: pink;
+	z-index: 99;
+	top:-465px;
+	display: none;
+}
+.secondmenu .show{
+	display: block;
 }
 .circle{
 	position: absolute;
@@ -45,6 +73,7 @@
 .circle li.current{
 	background-color: #FF0000;
 }
+
 
 .arrow-l, .arrow-r{
 	position: absolute;
@@ -77,6 +106,9 @@
 .jd-news{
 	height: 200px;
 	border-bottom: 1px dashed  #B3B3B3;
+}
+.jd-news li.news_li{
+	background-color: #B3B3B3;
 }
 .jd-news .dt, .lifeservice .dt{
 	height: 43px;
@@ -137,9 +169,9 @@
 	height: 25px;
 	background: url(../images/icon_lifeserv.png) no-repeat right top;
 }
-.li_ico2 a i{
+/*.li_ico2 a i{
 	background-position: right -25px;
-}
+}*/
 .lifeservice .song{
 	background: url(../images/song.png) no-repeat right top;
 }

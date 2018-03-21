@@ -19,12 +19,14 @@ body {
     content:"";
     display:table;
 }
-.clearfix:after{clear:both;}
+.clearfix:after{
+    clear:both;
+}
 .clearfix{
     *zoom:1;/*IE/7/6*/
 }
 a {color:#666; text-decoration:none; }
-a:hover{color:#C81623;}
+/*a:hover{color:#C81623;}*/
 h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
 s,i,em{font-style:normal;text-decoration:none;}
 .col-red{color: #C81623!important;}
@@ -122,6 +124,14 @@ s,i,em{font-style:normal;text-decoration:none;}
     font-family: "microsoft yahei";
     margin: 10px 50px;
     color: #ffffff;
+}
+.box .wrong{
+    width: 150px;
+    color: red;
+    top:165px;
+    left: 120px;
+    font-size: 12px;
+    /*display: none;*/
 }
 
 /*头部导航开始*/
@@ -231,15 +241,24 @@ s,i,em{font-style:normal;text-decoration:none;}
     height: 35px;
     float: left;
     padding-top: 25px;
+    position: relative;
 }
 .search input{
     width: 450px;
     height: 32px;
     border:2px solid #b61d1d;
     padding-left: 4px;
-    color: #666;
+    /*color: #666;*/
     font: 14px/32px "宋体";
     float: left;
+}
+.search label{
+    color: #666;
+    font: 12px/32px "宋体";
+    position: absolute;
+    left: 20px;
+    top: 27px;
+    cursor: text;
 }
 .search button{
     width: 80px;
@@ -327,7 +346,7 @@ s,i,em{font-style:normal;text-decoration:none;}
     background-color: #c81623;
     margin-top: 2px;
 }
-.dropdown .items{
+.dropdown .items div{
     height: 31px;
     line-height: 31px;
     border-left: 1px solid #b1191a;
@@ -335,6 +354,7 @@ s,i,em{font-style:normal;text-decoration:none;}
     padding-left: 10px;
     font-size: 15px;
     font-family: "microsft yahei";
+    cursor: pointer;
 
 }
 .dropdown .items h3{
